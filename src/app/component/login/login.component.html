@@ -1,0 +1,43 @@
+<video src="../../../assets/vids/bg-dogs.mp4" class="background-video" [muted]="'muted'" autoplay="autoplay" loop="true" ></video>
+  <div class="flex justify-content-center mt-8 animation-duration-1000 animation-ease-out animation-iteration-1 fadeindown">
+    <p-card  class="w-8 h-auto">
+      <div class=" flex justify-content-center">
+        <img src="../../../assets/imgs/Fetch_PrimaryLogo.jpg" class="banner-image">
+      </div>
+      <div [formGroup]="this.loginForm">
+          <div class="g-4 align-items-center">
+            <div class="col-12 col-sm-12 col-lg-12 col-xl-12 m-5">
+              <div class="p-float-label ">
+                <input class="w-10" type="text" pInputText formControlName="name">
+                <label htmlFor="name">Name<span class="asterisk"> *</span></label>
+              </div>
+              <div *ngIf="isFieldInGroupInvalid('name')" class="form-element__errors">
+                <small
+                *ngIf="getFieldFromGroup('name').errors!['required']"
+                class="p-error"
+                >Name is required</small>
+              </div>
+            </div>
+            <div class="col-12 col-sm-12 col-lg-12 col-xl-12 m-5">
+              <div class="p-float-label">
+                <input pInputText class="w-10"  formControlName="email">
+                <label htmlFor="password">Email<span class="asterisk"> *</span></label>
+              </div>
+              <div *ngIf="isFieldInGroupInvalid('email')" class="form-element__errors">
+                <small
+                *ngIf="getFieldFromGroup('email').errors!['required']"
+                class="p-error"
+                >Email is required</small>
+                <small
+                *ngIf="getFieldFromGroup('email').errors!['email']"
+                class="p-error"
+                >Please use a valid email</small>
+              </div>
+            </div>
+          </div>
+      </div>
+      <div class="flex justify-content-end">
+        <p-button class="mr-3" label="Login" (onClick)="this.login()"></p-button>
+      </div>
+    </p-card>
+  </div>
